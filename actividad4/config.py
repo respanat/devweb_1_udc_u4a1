@@ -1,14 +1,15 @@
 import os
 from dotenv import load_dotenv
 
-load_dotenv() # Carga las variables de entorno del archivo .env
+load_dotenv()
+
 
 class Config:
     SECRET_KEY = os.getenv('SECRET_KEY', 'Cl4v3_53cr374_D3_D354rr0ll0')
-    DEBUG = os.getenv('DEBUG', 'True').lower() in ('true', '1', 't') # Modo depuración
+    DEBUG = os.getenv('DEBUG', 'True').lower() in ('true', '1', 't')
 
     SQLALCHEMY_DATABASE_URI = os.getenv("DATABASE_URL", "mysql+mysqlconnector://ramiro_espana:AbcdeUdeC@localhost:3306/act3_devweb")
-    SQLALCHEMY_TRACK_MODIFICATIONS = False # Deshabilita el seguimiento de modificaciones de objetos de SQLAlchemy.
+    SQLALCHEMY_TRACK_MODIFICATIONS = False  
 
     MAIL_SERVER = os.getenv('MAIL_SERVER', 'smtp.gmail.com')
     MAIL_PORT = int(os.getenv('MAIL_PORT', 587))
