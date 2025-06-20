@@ -1,11 +1,6 @@
-# This is a sample Python script.
+from src import create_app # Importa la función de creación de la aplicación
 
-# Press Shift+F6 to execute it or replace it with your code.
-
-
-def print_hi(name):
-    print(f'Hi, {name}')
-
+app = create_app() # Crea la instancia de la aplicación Flask
 
 if __name__ == '__main__':
-    print_hi('Netbeans')
+    app.run(debug=app.config['DEBUG'], port=8082) # modo debug
