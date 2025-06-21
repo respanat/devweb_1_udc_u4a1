@@ -29,6 +29,8 @@ def create_app():
     from .models.services.usuario_service import UsuarioService
     from .models.services.computador_service import ComputadorService
     from .models.services.email_service import EmailService
+    from .controllers.computador_controller import computador_bp
+    from .controllers.usuario_controller import usuario_bp
 
     email_service_instance = EmailService(mail)
 
@@ -39,6 +41,8 @@ def create_app():
     app.usuario_service = usuario_service_instance
     app.computador_service = computador_service_instance
     app.email_service = email_service_instance
+    app.register_blueprint(computador_bp)
+    app.register_blueprint(usuario_bp)
 
     return app
 
