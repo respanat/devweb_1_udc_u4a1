@@ -223,3 +223,22 @@ def procesar_recordar_password():
         )
 
     return render_template("forms/usuarios/recordar_password.html")
+
+
+@usuario_bp.route("/listar", methods=["GET"])
+def listar_usuario():
+    if "usuario_id" not in session:
+        return redirect(url_for("usuario_bp.mostrar_formulario_login"))
+
+    usuario_id = session["usuario_id"]
+    usuario_service = current_app.usuario_service
+    usuario = usuario_service.obtener_usuario_por_id(usuario_id)
+
+    if usuario:
+        return render_template(
+            "forms/usuarios/listar.html", usuarioLogueado=usuario
+        )
+    else:
+        session.pop("usuario_id", None)
+        session.pop("username", None)
+        return redirect(url_for("usuario_bp.mostrar_formulario_login"))

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Resultado de la Búsqueda</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Resultado de la Búsqueda</h1>
+
+        {% if usuarioEncontrado %}
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">{{ usuarioEncontrado.nombre }}</h5>
+                    <p class="card-text">
+                        Nombre de Usuario: <span>{{ usuarioEncontrado.username }}</span>
+                    </p>
+                    <p class="card-text">
+                        Correo Electrónico: <span>{{ usuarioEncontrado.email }}</span>
+                    </p>
+                    <a href="{{ url_for(
+				'usuario_bp.mostrar_formulario_editar_usuario\n\
+', id=usuarioEncontrado.id
+				) }}" class="btn btn-primary">Editar</a>
+                    <a href="{{ url_for('usuario_bp.eliminar_usuario\n\
+', id=usuarioEncontrado.id
+				) }}" class="btn btn-danger"
+                       onclick="return confirm('¿Estás seguro de eliminar este usuario?')">Eliminar</a>
+                </div>
+            </div>
+        {% else %}
+            <p class="alert alert-warning">No se encontró ningún usuario con el criterio de búsqueda.</p>
+        {% endif %}
+
+        <p>
+            <a href="{{ url_for('usuario_bp.mostrar_formulario_buscar_usuario\n\
+') }}" class="btn btn-secondary mt-3">Volver a Buscar</a>
+            <a href="{{ url_for('usuario_bp.listar_usuarios\n\
+') }}" class="btn btn-secondary mt-3">Volver a la Lista</a>
+        </p>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
