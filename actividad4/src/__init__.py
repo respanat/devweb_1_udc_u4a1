@@ -1,4 +1,4 @@
-from flask import Flask
+from flask import Flask, redirect, url_for
 from flask_sqlalchemy import SQLAlchemy
 from flask_mail import Mail
 import os
@@ -11,7 +11,8 @@ mail = Mail()
 
 
 def create_app():
-    app = Flask(__name__)
+    base_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
+    app = Flask(__name__, template_folder=os.path.join(base_dir, 'templates'))
 
     app.config.from_object('config.Config')
 
@@ -34,7 +35,8 @@ def create_app():
 
     email_service_instance = EmailService(mail)
 
-    usuario_service_instance = UsuarioService(UsuarioRepository, email_service_instance)
+    usuario_service_instance = UsuarioService(
+        UsuarioRepository, email_service_instance)
 
     computador_service_instance = ComputadorService(ComputadorRepository)
 
@@ -44,5 +46,7 @@ def create_app():
     app.register_blueprint(computador_bp)
     app.register_blueprint(usuario_bp)
 
+    @app.route('/')
+    def redirigir_al_login():
+        return redirect(url_for('usuario_bp.mostrar_formulario_login'))
     return app
-
