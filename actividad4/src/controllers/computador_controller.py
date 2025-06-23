@@ -1,7 +1,7 @@
 from flask import (Blueprint, current_app, flash, redirect, render_template,
                    request, url_for)
 from src.models.entities.computador import Computador
-# from src.models.entities.usuario import Usuario
+from src.models.entities.usuario import Usuario
 from src.models.services.computador_service import ComputadorService
 from src.models.services.usuario_service import UsuarioService
 

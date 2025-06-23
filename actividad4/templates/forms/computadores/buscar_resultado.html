@@ -37,18 +37,18 @@
                     <td>{{ computador.id }}</td>
                     <td>{{ computador.marca }}</td>
                     <td>{{ computador.categoria }}</td>
-                    <td>{{ computador.marcaCpu }}</td>
-                    <td>{{ computador.velocidadCpU }}</td>
-                    <td>{{ computador.tecnologiaRam }}/{{ computador.capacidadRam }} GB</td>
-                    <td>{{ computador.tecnologiaDisco }}/{{ computador.capacidadDisco }} GB</td>
-                    <td>{{ computador.numPuertosUSB }}</td>
-                    <td>{{ computador.numPuertosHDMI }}</td>
-                    <td>{{ computador.marcaMonitor }}/{{ computador.pulgadas }} "</td>
+                    <td>{{ computador.marca_cpu }}</td>
+                    <td>{{ computador.velocidad_cpu }}</td>
+                    <td>{{ computador.tecnologia_ram }} / {{ computador.capacidad_ram }} GB</td>
+                    <td>{{ computador.tecnologia_disco }} / {{ computador.capacidad_disco }} GB</td>
+                    <td>{{ computador.num_puertos_usb }}</td>
+                    <td>{{ computador.num_puertos_hdmi}}</td>
+                    <td>{{ computador.marca_monitor }} / {{ computador.pulgadas }} "</td>
                     <td>{{ computador.precio }}</td>
                     <td>{{ computador.usuario.id if computador.usuario else 'Sin asignar' }}</td>
                     <td>
                         <a href="{{ url_for('computador_bp.mostrar_formulario_editar', id=computador.id) }}" class="btn btn-primary btn-sm">Editar</a>
-                        <a href="{{ url_for('computador_bp.eliminar', id=computador.id) }}" class="btn btn-danger btn-sm"
+                        <a href="{{ url_for('computador_bp.eliminar_computador', id=computador.id) }}" class="btn btn-danger btn-sm"
                            onclick="return confirm('¿Estás seguro de eliminar este computador?')">Eliminar</a>
                     </td>
                 </tr>

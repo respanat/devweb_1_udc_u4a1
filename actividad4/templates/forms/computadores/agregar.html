@@ -14,56 +14,56 @@
         </div>
         <div class="form-group">
             <label for="categoria">Categoría:</label>
-            <input type="text" class="form-control" id="categoria" name="categoria">
+            <input type="text" class="form-control" id="categoria" name="categoria" required>
         </div>
         <div class="form-group">
-            <label for="marcaCpu">Marca CPU:</label>
-            <input type="text" class="form-control" id="marcaCpu" name="marcaCpu">
+            <label for="marca_cpu">Marca CPU:</label>
+            <input type="text" class="form-control" id="marca_cpu" name="marca_cpu" value="{{ computador.marca_cpu }}" required>
         </div>
         <div class="form-group">
-            <label for="velocidadCpU">Velocidad CPU (GHz):</label>
-            <input type="number" step="0.01" class="form-control" id="velocidadCpU" name="velocidadCpU">
+            <label for="velocidad_cpu">Velocidad CPU (GHz):</label>
+            <input type="number" step="0.01" class="form-control" id="velocidad_cpu" name="velocidad_cpu" required>
         </div>
         <div class="form-group">
-            <label for="tecnologiaRam">Tecnología RAM:</label>
-            <input type="text" class="form-control" id="tecnologiaRam" name="tecnologiaRam">
+            <label for="tecnologia_ram">Tecnología RAM:</label>
+            <input type="text" class="form-control" id="tecnologia_ram" name="tecnologia_ram" required>
         </div>
         <div class="form-group">
-            <label for="capacidadRam">Capacidad RAM (GB):</label>
-            <input type="number" class="form-control" id="capacidadRam" name="capacidadRam">
+            <label for="capacidad_ram">Capacidad RAM (GB):</label>
+            <input type="number" class="form-control" id="capacidad_ram" name="capacidad_ram" required>
         </div>
         <div class="form-group">
-            <label for="tecnologiaDisco">Tecnología Disco:</label>
-            <input type="text" class="form-control" id="tecnologiaDisco" name="tecnologiaDisco">
+            <label for="tecnologia_disco">Tecnología Disco:</label>
+            <input type="text" class="form-control" id="tecnologia_disco" name="tecnologia_disco" required>
         </div>
         <div class="form-group">
-            <label for="capacidadDisco">Capacidad Disco (GB):</label>
-            <input type="number" class="form-control" id="capacidadDisco" name="capacidadDisco">
+            <label for="capacidad_disco">Capacidad Disco (GB):</label>
+            <input type="number" class="form-control" id="capacidad_disco" name="capacidad_disco" required>
         </div>
         <div class="form-group">
-            <label for="numPuertosUSB">Número de Puertos USB:</label>
-            <input type="number" class="form-control" id="numPuertosUSB" name="numPuertosUSB">
+            <label for="num_puertos_usb">Número de Puertos USB:</label>
+            <input type="number" class="form-control" id="num_puertos_usb" name="num_puertos_usb" required>
         </div>
         <div class="form-group">
-            <label for="numPuertosHDMI">Número de Puertos HDMI:</label>
-            <input type="number" class="form-control" id="numPuertosHDMI" name="numPuertosHDMI">
+            <label for="num_puertos_hdmi">Número de Puertos HDMI:</label>
+            <input type="number" class="form-control" id="num_puertos_hdmi" name="num_puertos_hdmi" required>
         </div>
         <div class="form-group">
-            <label for="MarcaMonitor">Marca Monitor:</label>
-            <input type="text" class="form-control" id="MarcaMonitor" name="MarcaMonitor">
+            <label for="marca_monitor">Marca Monitor:</label>
+            <input type="text" class="form-control" id="marca_monitor" name="marca_monitor" required>
         </div>
         <div class="form-group">
             <label for="pulgadas">Pulgadas Monitor:</label>
-            <input type="number" step="0.1" class="form-control" id="pulgadas" name="pulgadas">
+            <input type="number" step="0.1" class="form-control" id="pulgadas" name="pulgadas" required>
         </div>
         <div class="form-group">
             <label for="precio">Precio:</label>
-            <input type="number" step="0.01" class="form-control" id="precio" name="precio">
+            <input type="number" step="0.01" class="form-control" id="precio" name="precio" required>
         </div>
 
         <div class="form-group">
             <label for="usuario_id">Usuario Asociado:</label>
-            <select class="form-control" id="usuario_id" name="usuario_id" required> 
+            <select class="form-control" id="usuario_id" name="usuario_id"> 
                 <option value="">-- Seleccione un usuario --</option>
                 {% for userObj in usuarios %}
                     <option value="{{ userObj.id }}">{{ userObj.nombre }} ({{ userObj.username }})</option>

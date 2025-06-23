@@ -7,7 +7,7 @@
 <body>
 <div class="container mt-4">
     <h1>Editar Computador</h1>
-    <form action="{{ url_for('computador_bp.actualizar') }}" method="post">
+    <form action="{{ url_for('computador_bp.actualizar_computador') }}" method="post">
         <input type="hidden" name="id" value="{{ computador.id }}"/>
 
         <div class="form-group">
@@ -21,48 +21,48 @@
         </div>
 
         <div class="form-group">
-            <label for="marcaCpu">Marca CPU:</label>
-            <input type="text" class="form-control" id="marcaCpu" name="marcaCpu" value="{{ computador.marcaCpu }}">
+            <label for="marca_cpu">Marca CPU:</label>
+            <input type="text" class="form-control" id="marca_cpu" name="marca_cpu" value="{{ computador.marca_cpu }}">
         </div>
 
         <div class="form-group">
-            <label for="velocidadCpU">Velocidad CPU (GHz):</label>
-            <input type="number" step="0.01" class="form-control" id="velocidadCpU" name="velocidadCpU" value="{{ computador.velocidadCpU }}">
+            <label for="velocidad_cpu">Velocidad CPU (GHz):</label>
+            <input type="number" step="0.01" class="form-control" id="velocidad_cpu" name="velocidad_cpu" value="{{ computador.velocidad_cpu }}">
         </div>
 
         <div class="form-group">
-            <label for="tecnologiaRam">Tecnología RAM:</label>
-            <input type="text" class="form-control" id="tecnologiaRam" name="tecnologiaRam" value="{{ computador.tecnologiaRam }}">
+            <label for="tecnologia_ram">Tecnología RAM:</label>
+            <input type="text" class="form-control" id="tecnologia_ram" name="tecnologia_ram" value="{{ computador.tecnologia_ram }}">
         </div>
 
         <div class="form-group">
-            <label for="capacidadRam">Capacidad RAM (GB):</label>
-            <input type="number" class="form-control" id="capacidadRam" name="capacidadRam" value="{{ computador.capacidadRam }}">
+            <label for="capacidad_ram">Capacidad RAM (GB):</label>
+            <input type="number" class="form-control" id="capacidad_ram" name="capacidad_ram" value="{{ computador.capacidad_ram }}">
         </div>
 
         <div class="form-group">
-            <label for="tecnologiaDisco">Tecnología Disco:</label>
-            <input type="text" class="form-control" id="tecnologiaDisco" name="tecnologiaDisco" value="{{ computador.tecnologiaDisco }}">
+            <label for="tecnologia_disco">Tecnología Disco:</label>
+            <input type="text" class="form-control" id="tecnologia_disco" name="tecnologia_disco" value="{{ computador.tecnologia_disco }}">
         </div>
 
         <div class="form-group">
-            <label for="capacidadDisco">Capacidad Disco (GB):</label>
-            <input type="number" class="form-control" id="capacidadDisco" name="capacidadDisco" value="{{ computador.capacidadDisco }}">
+            <label for="capacidad_disco">Capacidad Disco (GB):</label>
+            <input type="number" class="form-control" id="capacidad_disco" name="capacidad_disco" value="{{ computador.capacidad_disco }}">
         </div>
 
         <div class="form-group">
-            <label for="numPuertosUSB">Número de Puertos USB:</label>
-            <input type="number" class="form-control" id="numPuertosUSB" name="numPuertosUSB" value="{{ computador.numPuertosUSB }}">
+            <label for="num_puertos_usb">Número de Puertos USB:</label>
+            <input type="number" class="form-control" id="num_puertos_usb" name="num_puertos_usb" value="{{ computador.num_puertos_usb }}">
         </div>
 
         <div class="form-group">
-            <label for="numPuertosHDMI">Número de Puertos HDMI:</label>
-            <input type="number" class="form-control" id="numPuertosHDMI" name="numPuertosHDMI" value="{{ computador.numPuertosHDMI }}">
+            <label for="num_puertos_hdmiI">Número de Puertos HDMI:</label>
+            <input type="number" class="form-control" id="num_puertos_hdmi" name="num_puertos_hdmi" value="{{ computador.num_puertos_hdmi }}">
         </div>
 
         <div class="form-group">
-            <label for="MarcaMonitor">Marca Monitor:</label>
-            <input type="text" class="form-control" id="MarcaMonitor" name="MarcaMonitor" value="{{ computador.marcaMonitor }}">
+            <label for="marca_monitor">Marca Monitor:</label>
+            <input type="text" class="form-control" id="marca_monitor" name="marca_monitor" value="{{ computador.marca_monitor }}">
         </div>
 
         <div class="form-group">
