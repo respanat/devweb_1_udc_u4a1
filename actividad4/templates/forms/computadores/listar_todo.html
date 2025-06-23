@@ -1,0 +1,56 @@
+<div class="container mt-4">
+    <h1>Lista de Computadores</h1>
+    <p>
+        <a href="{{ url_for('computador_bp.mostrar_formulario_agregar') }}" class="btn btn-success">Agregar Nuevo Computador</a>
+        <a href="{{ url_for('computador_bp.mostrar_formulario_buscar') }}" class="btn btn-info ml-2">Buscar Computador</a>
+    </p>
+
+    {% if not computadores %}
+        <p class="alert alert-info">No hay computadores registrados.</p>
+    {% else %}
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Marca</th>
+                    <th>Categoría</th>
+                    <th>Marca CPU</th>
+                    <th>Velocidad CPU</th>
+                    <th>RAM</th>
+                    <th>Disco</th>
+                    <th>USB</th>
+                    <th>HDMI</th>
+                    <th>Monitor</th>
+                    <th>Precio</th>
+                    <th>Usuario ID</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                {# Iteración sobre la lista de computadores #}
+                {% for computador in computadores %}
+                    <tr>
+                        <td>{{ computador.id }}</td>
+                        <td>{{ computador.marca }}</td>
+                        <td>{{ computador.categoria }}</td>
+                        <td>{{ computador.marcaCpu }}</td>
+                        <td>{{ computador.velocidadCpU }}</td>
+                        <td>{{ computador.tecnologiaRam }}/{{ computador.capacidadRam }} GB</td>
+                        <td>{{ computador.tecnologiaDisco }}/{{ computador.capacidadDisco }} GB</td>
+                        <td>{{ computador.numPuertosUSB }}</td>
+                        <td>{{ computador.numPuertosHDMI }}</td>
+                        <td>{{ computador.marcaMonitor }}/{{ computador.pulgadas }} "</td>
+                        <td>{{ computador.precio }}</td>
+                        {# Verifica si el computador tiene un usuario asociado antes de intentar acceder a su ID #}
+                        <td>{{ computador.usuario.id if computador.usuario else 'Sin asignar' }}</td>
+                        <td>
+                            <a href="{{ url_for('computador_bp.mostrar_formulario_editar', id=computador.id) }}" class="btn btn-primary btn-sm">Editar</a>
+                            <a href="{{ url_for('computador_bp.eliminar', id=computador.id) }}" class="btn btn-danger btn-sm"
+                               onclick="return confirm('¿Estás seguro de eliminar este computador?')">Eliminar</a>
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    {% endif %}
+</div>

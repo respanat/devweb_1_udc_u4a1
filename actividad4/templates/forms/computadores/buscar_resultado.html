@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <title>Resultados de la Búsqueda</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+<div class="container mt-4">
+    <h1>Resultados de la Búsqueda</h1>
+
+    {% if not computadoresEncontrados %}
+        <p class="alert alert-info">No se encontraron computadores con el criterio: "{{ criterio }}".</p>
+    {% else %}
+        <p>Se encontraron {{ computadoresEncontrados|length }} computadores con el criterio: "{{ criterio }}".</p>
+
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th>ID</th>
+                <th>Marca</th>
+                <th>Categoría</th>
+                <th>Marca CPU</th>
+                <th>Velocidad CPU</th>
+                <th>RAM (Tecnología/Capacidad)</th>
+                <th>Disco (Tecnología/Capacidad)</th>
+                <th>USB</th>
+                <th>HDMI</th>
+                <th>Monitor (Marca/Pulgadas)</th>
+                <th>Precio</th>
+                <th>Usuario ID</th>
+                <th>Acciones</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for computador in computadoresEncontrados %}
+                <tr>
+                    <td>{{ computador.id }}</td>
+                    <td>{{ computador.marca }}</td>
+                    <td>{{ computador.categoria }}</td>
+                    <td>{{ computador.marcaCpu }}</td>
+                    <td>{{ computador.velocidadCpU }}</td>
+                    <td>{{ computador.tecnologiaRam }}/{{ computador.capacidadRam }} GB</td>
+                    <td>{{ computador.tecnologiaDisco }}/{{ computador.capacidadDisco }} GB</td>
+                    <td>{{ computador.numPuertosUSB }}</td>
+                    <td>{{ computador.numPuertosHDMI }}</td>
+                    <td>{{ computador.marcaMonitor }}/{{ computador.pulgadas }} "</td>
+                    <td>{{ computador.precio }}</td>
+                    <td>{{ computador.usuario.id if computador.usuario else 'Sin asignar' }}</td>
+                    <td>
+                        <a href="{{ url_for('computador_bp.mostrar_formulario_editar', id=computador.id) }}" class="btn btn-primary btn-sm">Editar</a>
+                        <a href="{{ url_for('computador_bp.eliminar', id=computador.id) }}" class="btn btn-danger btn-sm"
+                           onclick="return confirm('¿Estás seguro de eliminar este computador?')">Eliminar</a>
+                    </td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    {% endif %}
+
+    <p><a href="{{ url_for('usuario_bp.listar_usuarios') }}" class="btn btn-secondary">Volver a la Lista</a></p>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

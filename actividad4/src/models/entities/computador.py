@@ -23,7 +23,7 @@ class Computador(db.Model):
     pulgadas: Mapped[float] = mapped_column(Float)
     precio: Mapped[float] = mapped_column(Float)
 
-    usuario_id: Mapped[int] = mapped_column(Integer, ForeignKey('usuarios.id'))
+    usuarios_id: Mapped[int] = mapped_column(Integer, ForeignKey('usuarios.id'))
     usuario: Mapped['usuario'] = relationship(Usuario, backref='computadores')
 
     # Constructor
@@ -56,4 +56,4 @@ class Computador(db.Model):
     def __repr__(self):
         return (f"<Computador(id={self.id}, marca='{self.marca}', "
                 f"categoria='{self.categoria}', marca_cpu='{self.marca_cpu}', "
-                f"usuario_id={self.usuario_id})>")
+                f"usuarios_id={self.usuarios_id})>")

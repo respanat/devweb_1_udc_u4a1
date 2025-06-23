@@ -125,22 +125,13 @@
         <div class="form-group">
             <label for="username">Usuario:</label>
             <input type="text" id="username" name="username" required>
+	    <input type="hidden" name="adminLogin" value="true">
         </div>
         <div class="form-group">
             <label for="password">Contraseña:</label>
             <input type="password" id="password" name="password" required>
         </div>
         <button type="submit">Iniciar Sesión</button>
-    </form>
-
-    {# Botón de acceso admin #}
-    <form action="{{ url_for('usuario_bp.procesar_login') }}" method="post">
-        <input type="hidden" name="username" value="admin">
-        <input type="hidden" name="password" value="admin">
-        <input type="hidden" name="adminLogin" value="true">
-        <div class="admin-button">
-            <button type="submit">Administrar</button>
-        </div>
     </form>
 
     {# Enlace para recordar contraseña #}
