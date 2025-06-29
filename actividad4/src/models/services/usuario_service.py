@@ -1,4 +1,7 @@
 from typing import List, Optional
+import logging
+
+logger = logging.getLogger(__name__) 
 
 from src.models.entities.usuario import Usuario
 from src.models.repositories.usuario_repository import UsuarioRepository
@@ -29,7 +32,7 @@ class UsuarioService:
         if usuario_a_eliminar:
             self.usuario_repository.delete(usuario_a_eliminar)
         else:
-            print(
+            logger.warning(
                 f"Advertencia: No se encontró usuario con ID {id} para eliminar."
             )
 

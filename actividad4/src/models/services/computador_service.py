@@ -1,4 +1,7 @@
 from typing import List, Optional
+import logging
+
+logger = logging.getLogger(__name__)
 
 from src.models.entities.computador import Computador
 from src.models.repositories.computador_repository import ComputadorRepository
@@ -25,7 +28,7 @@ class ComputadorService:
         if computador_a_eliminar:
             self.computador_repository.delete(computador_a_eliminar)
         else:
-            print(f"Advertencia: No se encontró computador con ID {id} para eliminar.")
+            logger.warning(f"Advertencia: No se encontró computador con ID {id} para eliminar.")
 
     def buscar_computadores_por_criterio(self, criterio: str) -> List[Computador]:
         return self.computador_repository.find_by_multiple_criteria_containing_ignore_case(criterio)
