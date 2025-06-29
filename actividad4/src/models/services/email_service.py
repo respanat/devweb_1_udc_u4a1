@@ -7,7 +7,7 @@ class EmailService:
         self.mail_instance = mail_instance
 
     def send_simple_mail(self, to_email: str, subject: str, body: str):
-        sender = current_app.config.get('MAIL_DEFAULT_SENDER', 'no-reply@example.com')
+        sender = current_app.config.get('Actividad4 DevWeb2025', 'respanat@unicartagena.edu.co')
         
         msg = Message(subject, sender=sender, recipients=[to_email])
         msg.body = body
