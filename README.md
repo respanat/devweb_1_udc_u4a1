@@ -16,6 +16,7 @@ La aplicación maneja una contraseña real y por supuesto github está avisando 
 1. git clone https://github.com/respanat/devweb_1_udc_u4a1.git (previamente git instalado)
 2. cd actividad4 (o en la ruta que se haya clonado la imagen)
 3. docker-compose up --build (previamente docker instalado)
+4. Con la imagen/contenedor ejecutándose, ir a http://127.0.0.1:5000 y empezar con el manejo... :)
 
 
 ~~🚀 Configuración Mínima
