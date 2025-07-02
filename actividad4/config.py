@@ -11,7 +11,7 @@ class Config:
 
     SQLALCHEMY_DATABASE_URI = os.getenv(
         "DATABASE_URL",
-        "mysql+mysqlconnector://ramiro_espana:AbcdeUdeC@localhost:3306/act3_devweb",
+        "mysql+mysqlconnector://ramiro_espana:AbcdeUdeC@localhost:3306/act4_devweb",
     )
     SQLALCHEMY_TRACK_MODIFICATIONS = False
 
