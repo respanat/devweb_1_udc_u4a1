@@ -1,13 +1,15 @@
 version: '3.8'
+
 services:
   web:
     build:
       context: .
-    ports: - "5000:5000"
+    ports:
+      - "5000:5000"
     environment:
       SECRET_KEY: ${SECRET_KEY}
       DEBUG: ${DEBUG}
-      DATABASE_URL: mysql+mysqlconnector://${MYSQL_USER}:${MYSQL_PASSWORD}@db:${MYSQL_PORT}/${MYSQL_DATABASE}
+      DATABASE_URL: mysql+mysqlconnector://${MYSQL_USER}:${MYSQL_PASSWORD}@db:3306/${MYSQL_DATABASE}
       MAIL_SERVER: mailhog
       MAIL_PORT: 1025
       MAIL_USE_TLS: "False"
@@ -21,10 +23,11 @@ services:
     volumes:
       - .:/app
     restart: on-failure
+
   db:
     image: mysql:8.0
     ports:
-      - "3306:3306"
+      - "3307:3306"
     environment:
       MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
       MYSQL_DATABASE: ${MYSQL_DATABASE}
@@ -40,5 +43,6 @@ services:
       - "8025:8025"
       - "1025:1025"
     restart: on-failure
+
 volumes:
   db_data:
